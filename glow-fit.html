@@ -98,13 +98,17 @@ a{color:inherit}
 .hero__grid{position:relative;z-index:2}
 .hero__in{max-width:600px}
 @media(max-width:820px){
-  .hero{min-height:0;padding-top:clamp(100px,32vw,170px)}
-  .hero__bg{object-position:72% 26%}
+  /* mesma lógica do banner da home: a foto vira uma faixa no topo (dá pra
+     ver a imagem, sem zoom excessivo) e o marrom sólido desce por baixo
+     dela para segurar o título com contraste garantido */
+  .hero{min-height:0;padding-top:230px}
+  .hero__bg{top:0;left:0;right:0;bottom:auto;height:230px;object-position:55% 18%}
   .hero::after{
     background:
-      linear-gradient(180deg,var(--escuro) 0%,rgba(36,26,19,.96) 48%,rgba(36,26,19,.5) 78%,rgba(36,26,19,.15) 100%);
+      linear-gradient(180deg,rgba(36,26,19,0) 0%,rgba(36,26,19,.55) 140px,var(--escuro) 220px,var(--escuro) 100%);
   }
-  .hero h1{font-size:clamp(46px,13vw,64px)}
+  .eyebrow{white-space:nowrap;font-size:clamp(13px,3.4vw,15px)}
+  .hero h1{font-size:clamp(44px,12vw,60px)}
 }
 .eyebrow{font-size:15px;letter-spacing:.01em;color:#C79E62;margin:0 0 16px;font-weight:400}
 .hero h1{
